@@ -8,7 +8,7 @@ test("test integer addition", async (t) => {
 test("test string addition", async (t) => {
   assert.strictEqual(
     "1" + "1",
-    2,
+    "11",
     "Concatenation of '1' and '1' does not equal 2"
   );
 });
