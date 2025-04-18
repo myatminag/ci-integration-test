@@ -1,0 +1,20 @@
+name: Node.js CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-verison: [20.x]
+    steps:
+      - uses: action/checkout@v4
+      - name: Use Node.js ${{ matrix.node-verison }}
+        uses: action/stepup-node@v4
+        with:
+          node-verison: ${{ matrix.node-version }}
+      - run: node --test
